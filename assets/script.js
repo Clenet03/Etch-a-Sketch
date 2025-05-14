@@ -8,6 +8,7 @@ function createGrid(size) {
     square.classList.add("grid-square");
     square.style.height = `${squareSize}px`;
     square.style.width = `${squareSize}px`;
+    container.appendChild(square);
   }
 }
 
