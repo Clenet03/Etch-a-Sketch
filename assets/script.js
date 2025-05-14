@@ -2,11 +2,12 @@ function getRandomRGB() {
   const r = Math.floor(Math.random() * 256);
   const g = Math.floor(Math.random() * 250);
   const b = Math.floor(Math.random() * 250);
+  return { r, g, b };
 }
 
 function createGrid(size) {
   const container = document.getElementById("container");
-  container.innerHTML = "";
+  container.textContent = "";
   const squareSize = 720 / size;
 
   for (let i = 0; i < size * size; i++) {
@@ -14,9 +15,37 @@ function createGrid(size) {
     square.classList.add("grid-square");
     square.style.height = `${squareSize}px`;
     square.style.width = `${squareSize}px`;
+    square.dataset.interactions = "0";
+
     square.addEventListener("mouseover", () => {
-      square.classList.add("hovered");
+      let interactions = parseInt(square.dataset.interactions);
+      let r, g, b;
+
+      if (interactions === 0) {
+        const color = getRandomRGB();
+        square.dataset.initialR = color.r;
+        square.dataset.initialG = color.g;
+        square.dataset.initialB = color.b;
+        r = color.r;
+        g = color.g;
+        b = color.b;
+      } else {
+        const initialR = parseInt(square.dataset.initialR);
+        const initialG = parseInt(square.dataset.initialG);
+        const initialB = parseInt(square.dataset.initialB);
+
+        r = Math.max(0, initialR - initialR * 0.1 * interactions);
+        g = Math.max(0, initialG - initialG * 0.1 * interactions);
+        b = Math.max(0, initialB - initialB * 0.1 * interactions);
+      }
+
+      square.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+
+      if (interactions < 10) {
+        square.dataset.interactions = interactions + 1;
+      }
     });
+
     container.appendChild(square);
   }
 }
