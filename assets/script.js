@@ -16,3 +16,15 @@ function createGrid(size) {
 }
 
 createGrid(16);
+
+const resizeBtn = document.getElementById("resize-btn");
+resizeBtn.addEventListener("click", () => {
+  let size = prompt("Enter the number of squares per side (max 100):");
+  size = parseInt(size);
+
+  if (size && size > 0 && size <= 100) {
+    createGrid(size);
+  } else {
+    alert("Please enter a valid number between 1 and 100.");
+  }
+});
