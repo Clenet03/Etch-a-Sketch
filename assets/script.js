@@ -1,3 +1,9 @@
+function getRandomRGB() {
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 250);
+  const b = Math.floor(Math.random() * 250);
+}
+
 function createGrid(size) {
   const container = document.getElementById("container");
   container.innerHTML = "";
@@ -28,9 +34,3 @@ resizeBtn.addEventListener("click", () => {
     alert("Please enter a valid number between 1 and 100.");
   }
 });
-
-function getRandomRGB() {
-  const r = Math.floor(Math.random() * 256);
-  const g = Math.floor(Math.random() * 250);
-  const b = Math.floor(Math.random() * 250);
-}
