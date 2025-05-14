@@ -35,5 +35,5 @@ body {
 .grid-square {
   box-sizing: border-box;
   border: 1px solid #ddd;
-  background-color: white;
+  opacity: 0;
 }
