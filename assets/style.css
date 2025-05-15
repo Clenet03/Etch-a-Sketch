@@ -8,7 +8,8 @@ body {
   background-color: #f0f0f0;
 }
 
-#resize-btn {
+#resize-btn,
+#reset-btn {
   margin-bottom: 20px;
   padding: 10px 20px;
   font-size: 16px;
@@ -19,7 +20,8 @@ body {
   border-radius: 5px;
 }
 
-#resize-btn:hover {
+#resize-btn:hover,
+#reset-btn:hover {
   background-color: #45a049;
 }
 
