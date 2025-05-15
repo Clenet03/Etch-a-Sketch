@@ -36,6 +36,15 @@ function createGrid(size) {
   }
 }
 
+function resetGrid() {
+  const squares = document.querySelectorAll(".grid-square");
+  squares.forEach((square) => {
+    square.style.opacity = "0";
+    square.style.backgroundColor = "";
+    square.dataset.interactions = "0";
+  });
+}
+
 createGrid(16);
 
 const resizeBtn = document.getElementById("resize-btn");
@@ -48,4 +57,9 @@ resizeBtn.addEventListener("click", () => {
   } else {
     alert("Please enter a valid number between 1 and 100.");
   }
+});
+
+const resetBtn = document.getElementById("reset-btn");
+resetBtn.addEventListener("click", () => {
+  resetGrid();
 });
